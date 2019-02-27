@@ -11,7 +11,8 @@ const Input = ({ name, label, value, onChange, type = 'text' }) => {
 };
 
 const AddFriendForm = ({ onSubmit }) => {
-  const { values, handleChange, handleSubmit } = useForm(addFriend);
+  const fields = ['name', 'age', 'email'];
+  const { values, handleChange, handleSubmit } = useForm(fields, addFriend);
 
   function addFriend() {
     console.log(values);
@@ -27,7 +28,7 @@ const AddFriendForm = ({ onSubmit }) => {
           label="Email"
           type="email"
           onChange={handleChange}
-          value={values.name}
+          value={values.email}
         />
         <button>Add Friend</button>
       </form>
