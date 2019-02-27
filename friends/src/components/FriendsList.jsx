@@ -1,14 +1,12 @@
 import React from 'react';
+import Friend from './Friend';
 
 const FriendsList = ({ data, onRemove }) => {
   if (!data.length) return <div>Loading...</div>;
   return (
     <div className="friends-list">
       {data.map(f => (
-        <div key={f.id} className="friends-list-item">
-          {f.name}, age {f.age} - {f.email}
-          <button onClick={() => onRemove(f.id)}>X</button>
-        </div>
+        <Friend data={f} onRemove={onRemove} key={f.id} />
       ))}
     </div>
   );
