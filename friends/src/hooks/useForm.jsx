@@ -4,7 +4,7 @@ const useForm = (onSubmit, initialValues) => {
   const [values, setValues] = useState({});
 
   useEffect(() => {
-    if (initialValues) setValues(initialValues);
+    if (initialValues) setValues({ ...initialValues });
   }, [initialValues]);
 
   const handleChange = e => {
