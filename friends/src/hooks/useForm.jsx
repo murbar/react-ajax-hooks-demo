@@ -16,6 +16,7 @@ const useForm = (fieldNames = [], onSubmit) => {
   const handleSubmit = e => {
     if (e) e.preventDefault();
     onSubmit();
+    setValues(initialState);
   };
 
   return {
