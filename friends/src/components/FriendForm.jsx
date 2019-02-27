@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import useForm from '../hooks/useForm';
 
 const Input = ({ name, label, value, onChange, type = 'text' }) => {
@@ -14,17 +14,32 @@ const HiddenInput = ({ name, value }) => {
   return <input type="hidden" name={name} value={value} />;
 };
 
-const FriendForm = ({ onSubmit, editing = null }) => {
-  const { values, handleChange, handleSubmit, handleClear } = useForm(addFriend);
+const FriendForm = ({ onSubmit, initialValues }) => {
+  const initialFormTitle = 'Add Friend';
+  const [formTitle, setFormTitle] = useState(initialFormTitle);
+  const submitButtontext = formTitle.includes('Add') ? 'Add' : 'Edit';
 
-  function addFriend() {
+  useEffect(() => {
+    const title = initialValues ? `Edit ${initialValues.name}` : 'Add Friend';
+    setFormTitle(title);
+  }, [initialValues]);
+
+  const addFriend = () => {
     onSubmit(values);
-  }
+    resetForm();
+  };
+  const { values, handleChange, handleSubmit, handleClear } = useForm(addFriend, initialValues);
+
+  const resetForm = () => {
+    handleClear();
+    setFormTitle(initialFormTitle);
+  };
 
   return (
     <div className="friends-list">
       <form onSubmit={handleSubmit}>
-        <HiddenInput name="id" value={values.id} />
+        <h2>{formTitle}</h2>
+        <HiddenInput name="id" value={values.id || ''} />
         <Input name="name" label="Name" onChange={handleChange} value={values.name || ''} />
         <Input name="age" label="Age" onChange={handleChange} value={values.age || ''} />
         <Input
@@ -34,8 +49,8 @@ const FriendForm = ({ onSubmit, editing = null }) => {
           onChange={handleChange}
           value={values.email || ''}
         />
-        <button type="submit">Add Friend</button>
-        <button type="reset" onClick={handleClear}>
+        <button type="submit">{submitButtontext} Friend</button>
+        <button type="reset" onClick={resetForm}>
           Clear
         </button>
       </form>
