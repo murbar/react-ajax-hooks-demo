@@ -1,6 +1,7 @@
 import React from 'react';
 
-const FriendsList = ({ friends }) => {
+const FriendsList = ({ data }) => {
+  if (!data.length) return <div>Loading...</div>;
   return (
     <div>
       list
