@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import FriendsList from './components/FriendsList';
 import AddFriendForm from './components/AddFriendForm';
 import './App.css';
