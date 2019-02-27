@@ -11,9 +11,14 @@ const Friend = ({ data, onUpdate, onRemove }) => {
 
   return (
     <div className="friends-list-item">
-      {data.name}, age {data.age} - {data.email}
-      <button onClick={handleUpdate}>Update</button>
-      <button onClick={handleRemove}>Delete</button>
+      <div className="name">
+        {data.name}, age {data.age}
+      </div>
+      <div className="email">{data.email}</div>
+      <div className="controls">
+        <button onClick={handleUpdate}>Update</button>
+        <button onClick={handleRemove}>Delete</button>
+      </div>
     </div>
   );
 };
