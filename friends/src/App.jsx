@@ -19,7 +19,6 @@ const App = props => {
   }, []);
 
   const handleAddFriend = friendData => {
-    console.log(friendData);
     axios
       .post(apiEndpoint, { ...friendData })
       .then(res => {
@@ -29,7 +28,6 @@ const App = props => {
   };
 
   const handleRemoveFriend = friendId => {
-    console.log(friendId);
     axios
       .delete(`${apiEndpoint}/${friendId}`)
       .then(res => {
