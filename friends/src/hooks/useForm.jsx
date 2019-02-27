@@ -1,7 +1,11 @@
 import { useState } from 'react';
 
-const useForm = onSubmit => {
-  const [values, setValues] = useState({});
+const useForm = (fieldNames = [], onSubmit) => {
+  const initialState = fieldNames.reduce((obj, field) => {
+    obj[field] = '';
+    return obj;
+  }, {});
+  const [values, setValues] = useState(initialState);
 
   const handleChange = e => {
     e.persist();
