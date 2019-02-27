@@ -1,39 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import FriendsList from './components/FriendsList';
 import AddFriendForm from './components/AddFriendForm';
 import './App.css';
-
-const apiEndpoint = 'http://localhost:5000/friends';
+import useApi from './hooks/useApi';
 
 const App = props => {
-  const [friends, setFriends] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(apiEndpoint)
-      .then(res => {
-        setFriends(res.data);
-      })
-      .catch(err => console.log(err));
-  }, []);
+  const [friends, friendsApi] = useApi('http://localhost:5000/friends');
 
   const handleAddFriend = friendData => {
-    axios
-      .post(apiEndpoint, { ...friendData })
-      .then(res => {
-        setFriends(res.data);
-      })
-      .catch(err => console.log(err));
+    friendsApi.create(friendData);
   };
 
   const handleRemoveFriend = friendId => {
-    axios
-      .delete(`${apiEndpoint}/${friendId}`)
-      .then(res => {
-        setFriends(res.data);
-      })
-      .catch(err => console.log(err));
+    friendsApi.delete(friendId);
   };
 
   return (
