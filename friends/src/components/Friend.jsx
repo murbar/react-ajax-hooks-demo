@@ -6,10 +6,10 @@ const Friend = ({ data, onRemove }) => {
   };
 
   return (
-    <button className="friends-list-item">
+    <div className="friends-list-item">
       {data.name}, age {data.age} - {data.email}
-      <button onClick={handleRemove}>X</button>
-    </button>
+      <button onClick={handleRemove}>Delete</button>
+    </div>
   );
 };
 
