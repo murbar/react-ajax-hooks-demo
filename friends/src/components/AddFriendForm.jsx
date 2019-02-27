@@ -15,7 +15,7 @@ const AddFriendForm = ({ onSubmit }) => {
   const { values, handleChange, handleSubmit } = useForm(fields, addFriend);
 
   function addFriend() {
-    console.log(values);
+    onSubmit(values);
   }
 
   return (
