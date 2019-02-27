@@ -8,7 +8,6 @@ const App = props => {
   const [friends, setFriends] = useState([]);
 
   useEffect(() => {
-    console.log('mounted and loading data');
     axios
       .get('http://localhost:5000/friends')
       .then(res => {
@@ -17,11 +16,15 @@ const App = props => {
       .catch(err => console.log(err));
   }, []);
 
+  const handleAddFriend = friendData => {
+    console.log(friendData);
+  };
+
   return (
     <div className="App">
       <h1>Friends</h1>
       <FriendsList data={friends} />
-      <AddFriendForm />
+      <AddFriendForm onSubmit={handleAddFriend} />
     </div>
   );
 };
