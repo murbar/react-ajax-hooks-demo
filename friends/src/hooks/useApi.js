@@ -17,7 +17,7 @@ const useApi = endpoint => {
 
   const createItem = itemData => {
     axios
-      .post(endpoint, { ...itemData })
+      .post(endpoint, itemData)
       .then(res => {
         setData(res.data);
       })
@@ -25,8 +25,12 @@ const useApi = endpoint => {
   };
 
   const updateItem = itemData => {
-    // stub
-    console.log('Updating...', itemData);
+    axios
+      .put(`${endpoint}/${itemData.id}`, itemData)
+      .then(res => {
+        setData(res.data);
+      })
+      .catch(err => console.log(err));
   };
 
   const deleteItem = itemId => {
