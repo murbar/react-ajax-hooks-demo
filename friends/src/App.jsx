@@ -23,10 +23,12 @@ class App extends Component {
   }
 
   render() {
+    const { friends } = this.state;
+
     return (
       <div className="App">
         <h1>Friends</h1>
-        <FriendsList />
+        <FriendsList data={friends} />
       </div>
     );
   }
