@@ -2,12 +2,40 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 18px;
+}
+
 body {
-  color: #333;
-  background: white;
+  color: #343838;
+  background: #f4f7f7;
 }
 
 main {
   margin: 1rem auto 2rem;
   max-width: 40rem;
+}
+
+h1,
+h2 {
+  color: #274555;
+}
+
+a {
+  color: #ff7761;
+}
+
+button {
+  background: #ccc;
+  color: inherit;
+  border: none;
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background: #ff7761;
+  color: white;
 }
