@@ -4,12 +4,14 @@ import FriendsList from './components/FriendsList';
 import AddFriendForm from './components/AddFriendForm';
 import './App.css';
 
+const apiEndpoint = 'http://localhost:5000/friends';
+
 const App = props => {
   const [friends, setFriends] = useState([]);
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/friends')
+      .get(apiEndpoint)
       .then(res => {
         setFriends(res.data);
       })
@@ -18,12 +20,28 @@ const App = props => {
 
   const handleAddFriend = friendData => {
     console.log(friendData);
+    axios
+      .post(apiEndpoint, { ...friendData })
+      .then(res => {
+        setFriends(res.data);
+      })
+      .catch(err => console.log(err));
+  };
+
+  const handleRemoveFriend = friendId => {
+    console.log(friendId);
+    axios
+      .delete(`${apiEndpoint}/${friendId}`)
+      .then(res => {
+        setFriends(res.data);
+      })
+      .catch(err => console.log(err));
   };
 
   return (
     <div className="App">
       <h1>Friends</h1>
-      <FriendsList data={friends} />
+      <FriendsList data={friends} onRemove={handleRemoveFriend} />
       <AddFriendForm onSubmit={handleAddFriend} />
     </div>
   );
