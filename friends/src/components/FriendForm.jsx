@@ -36,7 +36,7 @@ const FriendForm = ({ onSubmit, initialValues }) => {
   };
 
   return (
-    <div className="friends-list">
+    <div className="friends-form">
       <form onSubmit={handleSubmit}>
         <h2>{formTitle}</h2>
         <HiddenInput name="id" value={values.id || ''} />
