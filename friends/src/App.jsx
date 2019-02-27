@@ -25,15 +25,19 @@ const App = props => {
   };
 
   return (
-    <div className="App">
+    <main>
       <h1>Friends</h1>
+      <p>
+        A CRUDdy demo by Joel Bartlett. See{' '}
+        <a href="https://github.com/murbar">my code on GitHub</a>.
+      </p>
       <FriendsList
         data={friends}
         onUpdate={id => populateFormForEditing(id)}
         onRemove={handleRemoveFriend}
       />
       <FriendForm onSubmit={handleFormSubmit} initialValues={editingData} />
-    </div>
+    </main>
   );
 };
 
