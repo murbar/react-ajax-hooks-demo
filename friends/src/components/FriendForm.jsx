@@ -15,8 +15,7 @@ const HiddenInput = ({ name, value }) => {
 };
 
 const FriendForm = ({ onSubmit, editing = null }) => {
-  // const fields = ['name', 'age', 'email'];
-  const [values, handleChange, handleSubmit, handleClear] = useForm(addFriend);
+  const { values, handleChange, handleSubmit, handleClear } = useForm(addFriend);
 
   function addFriend() {
     onSubmit(values);

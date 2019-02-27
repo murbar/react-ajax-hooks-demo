@@ -19,7 +19,7 @@ const useForm = onSubmit => {
     setValues({});
   };
 
-  return [values, handleChange, handleSubmit, handleClear];
+  return { values, handleChange, handleSubmit, handleClear };
 };
 
 export default useForm;
