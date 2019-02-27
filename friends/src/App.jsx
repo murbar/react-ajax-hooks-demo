@@ -9,7 +9,11 @@ const App = props => {
   const [editingFriend, setEditingFriend] = useState(null);
 
   const handleFormSubmit = friendData => {
+    if (!friendData.id) {
     friendsApi.create(friendData);
+    } else {
+      friendsApi.update(friendData);
+    }
   };
 
   const handleRemoveFriend = friendId => {
