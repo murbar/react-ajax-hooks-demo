@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const useApi = endpoint => {
+const useEndpoint = endpoint => {
   const [data, setData] = useState([]);
 
   useEffect(() => getItems(), []);
@@ -52,4 +52,4 @@ const useApi = endpoint => {
   return [data, api];
 };
 
-export default useApi;
+export default useEndpoint;

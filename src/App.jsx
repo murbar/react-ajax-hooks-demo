@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import FriendsList from './components/FriendsList';
 import FriendForm from './components/FriendForm';
 import './App.css';
-import useApi from './hooks/useApi';
+import useEndpoint from './hooks/useEndpoint';
 
 const App = props => {
-  const [friends, friendsApi] = useApi('http://localhost:5000/friends');
+  const [friends, friendsApi] = useEndpoint('/.netlify/functions/friends');
   const [editingData, setEditingData] = useState(null);
 
   const handleFormSubmit = friendData => {
