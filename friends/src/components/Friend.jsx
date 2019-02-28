@@ -12,7 +12,7 @@ const Friend = ({ data, onUpdate, onRemove }) => {
   return (
     <div className="friends-list-item">
       <div className="name">
-        {data.name}, age {data.age}
+        <span>{data.name}</span>, age {data.age}
       </div>
       <div className="email">{data.email}</div>
       <div className="controls">
