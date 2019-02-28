@@ -50,7 +50,7 @@ function getNewId() {
 
 const router = express.Router();
 
-router.get('/friends', (req, res) => {
+router.get('/', (req, res) => {
   console.log('get');
   return res.status(200).json(friends);
 });
