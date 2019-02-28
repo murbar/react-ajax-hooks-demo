@@ -28,8 +28,8 @@ const App = props => {
     <main>
       <h1>Friends</h1>
       <p>
-        A CRUDdy React demo by Joel Bartlett. See{' '}
-        <a href="https://github.com/murbar">my code on GitHub</a>.
+        A CRUDdy React demo by Joel Bartlett. <br />
+        See my <a href="https://github.com/murbar">code on GitHub</a>.
       </p>
       <FriendsList
         data={friends}
