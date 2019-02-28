@@ -7,13 +7,18 @@ html {
 }
 
 body {
-  color: #343838;
+  color: #272625;
   background: #f4f7f7;
+  line-height: 1.6;
 }
 
 main {
-  margin: 1rem auto 2rem;
-  max-width: 40rem;
+  margin: 1rem auto 12rem;
+  max-width: 20rem;
+}
+
+main > p {
+  font-size: 0.9em;
 }
 
 h1,
@@ -22,20 +27,92 @@ h2 {
 }
 
 a {
-  color: #ff7761;
+  color: inherit;
 }
 
 button {
-  background: #ccc;
+  background: rgba(0, 0, 0, 0.15);
   color: inherit;
   border: none;
   border-radius: 0.25rem;
   margin-right: 0.5rem;
   padding: 0.25rem 0.5rem;
   text-transform: uppercase;
+  font-weight: bold;
 }
 
 button:hover {
-  background: #ff7761;
+  background: rgba(0, 0, 0, 0.75);
   color: white;
+}
+
+button:focus,
+input:focus {
+  outline: none;
+}
+
+.friends-list-item {
+  /* margin-bottom: 1rem; */
+  transition: all 200ms;
+  margin: -1rem 0 0 -1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.friends-list-item:last-child {
+  margin-bottom: 0;
+}
+.friends-list-item .name span {
+  font-weight: bold;
+}
+.friends-list-item .email {
+  font-style: italic;
+  font-size: 0.9em;
+}
+.friends-list-item:hover {
+  transform: scale(1.1);
+  background: #dae9f4;
+}
+
+.friends-form {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  color: white;
+  height: 10rem;
+}
+.friends-form form {
+  max-width: 20rem;
+  margin: 0 auto;
+}
+
+.friends-form form button {
+  background: grey;
+}
+.friends-form form button:hover {
+  background: #333;
+}
+
+form .form-input {
+  display: flex;
+  margin-bottom: 0.4rem;
+}
+
+form h2 {
+  color: white;
+  margin: 0.25rem 0 0;
+}
+
+form label {
+  /* display: inline-block; */
+  font-size: 0.8em;
+  font-weight: bold;
+  width: 3.5rem;
+}
+
+form input {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  border: none;
 }
