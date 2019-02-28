@@ -1,3 +1,9 @@
+Deployed at [https://jb-react-ajax-hooks-demo.netlify.com/](https://jb-react-ajax-hooks-demo.netlify.com/)
+
+
+
+
+
 This project is based on [Create React App v2](https://github.com/facebookincubator/create-react-app) and [netlify-lambda v1](https://github.com/netlify/netlify-lambda). (For more information about Create react App, check their full [documentation](https://github.com/facebookincubator/create-react-app#create-react-app).)
 
 The main addition is a new folder: `src/lambda`. Each JavaScript file in there will automatically be prepared for Lambda function deployment.
